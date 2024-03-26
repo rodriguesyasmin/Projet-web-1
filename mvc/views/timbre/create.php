@@ -1,8 +1,16 @@
 {{ include('layouts/header.php', {title: 'Client Create'}) }}
 <h1>Ajouter un timbre</h1>
 <div class="container">
-
-    <form method="post" class="form-pages">
+    {% if errors is defined %}
+    <div class="error">
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <form method="post" class="form-pages" enctype="multipart/form-data">
 
         <label>Identifiant unique:
             <input type="text" name="identifiant" class="input-field" value="{{ timbre.identifiant }}">
@@ -20,7 +28,7 @@
             <input type="text" name="prix" class="input-field" value="{{ timbre.prix }}">
         </label>
         <label>Condition:
-            <input type="text" name="condition" class="input-field" value="{{ timbre.condition }}">
+            <input type="text" name="etat" class="input-field" value="{{ timbre.condition }}">
         </label>
         <label>Pays:
             <input type="text" name="pays" class="input-field" value="{{ timbre.pays }}">
@@ -38,7 +46,7 @@
             <input type="text" name="dimensions" class="input-field" value="{{ timbre.dimensions }}">
         </label>
         <label>Categorie
-            <select name="categorie_stampee" class="select-field">
+            <select name="categorie_stampee_id" class="select-field">
                 <option value="">Select Privilege</option>
                 {% for categorie in categories %}
                 <option value="{{ categorie.id }}">
@@ -47,9 +55,20 @@
                 {% endfor %}
             </select>
         </label>
+        <label>Image Principale
+            <input type="file" name="image_principale" class="input-field">
+        </label>
+        {% if errors.image_principale is defined %}
+        <span class="error">{{ errors.image_principale }}</span>
+        {% endif %}
+
+        <label>Autres images
+            <input type="file" name="image_secondaire[]" multiple class="input-field">
+                    </label>
         <label>Enchères ID:
             <input type="text" name="encheres_stampee_id" class="input-field" value="{{ timbre.encheres_stampee_id }}">
         </label>
+        <input type="hidden" name="user_stampee_id" value="{{session.user_id}}">
         <input type="submit" class="btn" value="Ajouter le timbre">
     </form>
 </div>

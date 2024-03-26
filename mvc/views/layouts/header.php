@@ -52,10 +52,11 @@
 
             </ul>
         </nav>
+        {% if guest is empty %}
+        Hello xfgxdg {{ session.nom }}!
+        {% endif%}
     </header>
-    {% if guest is empty %}
-    Hello {{ session.user_name }}!
-    {% endif%}
+
 
     <body>
         <!-- <!DOCTYPE html>

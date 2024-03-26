@@ -19,12 +19,12 @@ class User extends CRUD
     {
         // return $password;
         $user = $this->unique('email', $username);
-        
-        echo $user['mot_de_passe'];
+
+
         if ($user) {
             if (password_verify($password, $user['mot_de_passe'])) {
-                // session_regenerate_id();
-                // $_SESSION['user_id'] = $user['id'];
+                session_regenerate_id();
+                $_SESSION['user_id'] = $user['id'];
                 // $_SESSION['user_name'] = $user['name'];
                 // $_SESSION['privilege_id'] = $user['privilege_id'];
                 // $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);

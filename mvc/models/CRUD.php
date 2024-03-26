@@ -55,6 +55,8 @@ abstract class CRUD extends \PDO
         }
     }
 
+
+
     public function update($data, $id)
     {
         if ($this->selectId($id)) {
