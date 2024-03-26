@@ -1,0 +1,54 @@
+.catalogue-main {
+  & h1 {
+    text-align: center;
+    padding: var(--spacing-l);
+  }
+
+  & .catalogue {
+    margin: var(--spacing-s) var(--spacing-l);
+    width: 100%;
+    padding: var(--spacing-l) 0;
+    & small {
+      padding: var(--spacing-s);
+    }
+  }
+  & .plus-timbres {
+    width: 15vw;
+    margin: var(--spacing-m) auto;
+    padding: var(--spacing-s);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    background-color: var(--color-brown);
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  & .plus-timbres:hover {
+    background-color: var(--color-dark-red);
+    box-shadow: 2px 2px 8px var(--color-brown);
+    transform: scale(1.1);
+  }
+
+  & .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-l);
+  }
+  @media (max-width: 1280px) {
+    & .grid-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 780px) {
+    & .grid-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    & .grid-cards {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

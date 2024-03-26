@@ -1,0 +1,32 @@
+.ajouter-panier {
+    font-size: var(--police-m);
+    padding: var(--spacing-m);
+    border-radius: var(--spacing-m);
+    text-align: center;
+    background-color: var(--color-brown);
+    color: var(--color-neutral-gray);
+    font-family: var(--police-principale);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        box-shadow: 2px 2px 8px var(--color-brown);
+        transform: scale(1.1);
+        cursor:pointer;
+    }
+}
+.decouvrir-encheres{
+    font-size: var(--police-m);
+    padding: var(--spacing-m);
+    border-radius: var(--spacing-m);
+    text-align: center;
+    background-color: var(--color-neutral-gray);
+    color: var(--color-dark-red);
+    font-family: var(--police-principale);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        box-shadow: 2px 2px 8px var(--color-brown);
+        transform: scale(1.1);
+        cursor:pointer;
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "controllers/",
+            "App\\Models\\": "models/",
+            "App\\Routes\\": "routes/",
+            "App\\Providers\\": "providers/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.8"
+    }
+}

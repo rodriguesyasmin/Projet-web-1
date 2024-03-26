@@ -1,0 +1,65 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  border: 2px solid var(--color-brown);
+  min-width: 60%;
+  height: 40vh;
+  box-shadow: 2px 5px 8px var(--color-brown);
+  transition: all 0.6s ease;
+  & .hourglass {
+    display: flex;
+    & i {
+      padding-top: var(--spacing-s);
+      color: var(--color-failure);
+    }
+  }
+  & h2 {
+    font-size: var(--police-m);
+    padding: var(--spacing-m);
+  }
+  & .card__id,
+  .card__prix {
+    padding: var(--spacing-xs);
+    color: var(--color-dar-red-1);
+  }
+  & .card__temps {
+    color: var(--color-failure);
+    padding: var(--spacing-s);
+  }
+  & .card__image {
+    cursor: pointer;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    & img {
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      filter: brightness(0.65);
+      transition: filter 350ms;
+    }
+
+    &:hover {
+      & img {
+        filter: brightness(1);
+      }
+    }
+  }
+  & .card__title {
+    padding: var(--space-s);
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 480px) {
+    max-width: 80%;
+    margin: auto;
+  }
+}

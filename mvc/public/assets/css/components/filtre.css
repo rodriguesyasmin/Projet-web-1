@@ -1,0 +1,138 @@
+.filters {
+  max-width: 20vw;
+  padding-left: var(--spacing-l);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & .contenu-filter {
+    padding: var(--spacing-s);
+    & .meilleurs-ventes {
+      text-decoration: none;
+      color: var(--color-dark-red);
+      transition: all 0.3s ease;
+    }
+    .meilleurs-ventes:hover {
+      cursor: pointer;
+      color: var(--color-brown);
+      transform: scale(1.02);
+    }
+  }
+  & h2 {
+    padding: var(--spacing-s) 0;
+    color: var(--color-dar-red-1);
+  }
+  & ul {
+    list-style: none;
+    & li {
+      padding: var(--spacing-s) 0;
+    }
+    & li a {
+      text-decoration: none;
+      color: var(--color-dark-red);
+      transition: all 0.3s ease;
+    }
+    & :hover {
+      cursor: pointer;
+      color: var(--color-brown);
+      transform: scale(1.02);
+    }
+  }
+
+  & .subscribeButton {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    color: var(--color-brown);
+    padding: var(--spacing-s);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    border-radius: 5px;
+    box-shadow: 0px -1px 6px 0px var(--color-brown);
+
+    & label {
+      padding: var(--spacing-s);
+      color: var(--color-dark-red);
+    }
+
+    & #emailInput {
+      padding: var(--spacing-s);
+      margin: var(--spacing-s) var(--spacing-s);
+      border: none;
+      border-radius: 5px;
+    }
+
+    & #subscribeButton {
+      background-color: var(--color-red);
+      color: #fff;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: var(--color-dark-red);
+        box-shadow: 2px 2px 8px var(--color-brown);
+        transform: scale(1.1);
+      }
+    }
+  }
+  & .min-max {
+    display: flex;
+    flex-wrap: wrap;
+
+    & label {
+      padding: var(--spacing-xs);
+    }
+
+    & input[type="number"] {
+      max-width: 20%;
+      display: inline-block;
+      margin-bottom: var(--spacing-s);
+    }
+  }
+
+  @media (max-width: 840px) {
+    & .min-max {
+      & label {
+        flex-basis: 100%;
+      }
+
+      & input[type="number"] {
+        max-width: 100%;
+      }
+    }
+
+    input[type="number"] {
+      display: inline-block;
+      max-width: 50%;
+      margin-bottom: var(--spacing-s);
+    }
+  }
+
+  @media (max-width: 480px) {
+    & .min-max {
+      & label {
+        flex-basis: 100%;
+      }
+
+      & input[type="number"] {
+        max-width: 100%;
+      }
+    }
+
+    & .subscribeButton {
+      display: none;
+    }
+    & input[type="number"] {
+      max-width: 100%;
+      margin-bottom: var(--spacing-s);
+    }
+    & .contenu-filter,
+    h2 {
+      font-size: smaller;
+    }
+  }
+}

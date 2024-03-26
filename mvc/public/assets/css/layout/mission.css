@@ -1,0 +1,145 @@
+.contenu-mission {
+  margin: 0 var(--spacing-l);
+  h1,
+  h2 {
+    padding: var(--spacing-l) 0;
+  }
+
+  & .mission-photo {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    margin-bottom: var(--spacing-l);
+
+    p {
+      margin-top: var(--spacing-m);
+      text-indent: var(--spacing-s);
+      padding: var(--spacing-s);
+      font-family: var(--police-secondaire);
+      font-size: var(--police-m);
+      text-align: justify;
+      hyphens: auto;
+    }
+    & .img-lord {
+      cursor: pointer;
+      margin: auto;
+      min-width: 65%;
+      min-height: 65%;
+      transition: all 0.3s ease;
+    }
+    .img-lord:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .valeurs {
+    & li {
+      margin-top: var(--spacing-m);
+      text-indent: var(--spacing-s);
+      padding: var(--spacing-s);
+      font-family: var(--police-secondaire);
+      font-size: var(--police-m);
+      text-align: justify;
+      hyphens: auto;
+    }
+    & strong {
+      color: var(--color-red);
+      font-weight: bolder;
+    }
+  }
+  .team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    margin: var(--spacing-l) 0;
+
+    & .employee {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--spacing-s);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.453);
+      margin: var(--spacing-m);
+    }
+    .employee:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  & .invitation {
+    margin-bottom: var(--spacing-l);
+    p {
+      margin-bottom: var(--spacing-l);
+      min-width: 50vw;
+      font-size: var(--police-m);
+    }
+    & .inscription {
+      font-family: var(--police-secondaire);
+      margin: var(--spacing-l) auto;
+      padding: var(--spacing-s);
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      background-color: var(--color-brown);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    & .inscription:hover {
+      background-color: var(--color-dark-red);
+      box-shadow: 2px 2px 8px var(--color-brown);
+      transform: scale(1.1);
+    }
+  }
+
+  @media (max-width: 1280px) {
+    & .mission-photo {
+      display: flex;
+      flex-direction: column;
+      & .img-lord {
+        margin: auto;
+        min-width: 30vw;
+        min-height: 20vh;
+      }
+    }
+  }
+  @media (max-width: 780px) {
+    & .mission-photo {
+      display: flex;
+      flex-direction: column;
+      & .img-lord {
+        margin: auto;
+        width: 50%;
+        height: 60%;
+      }
+    }
+    & .team {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    & .mission-photo {
+      display: flex;
+      flex-direction: column;
+      & .img-lord {
+        margin: auto;
+        width: 60vw;
+        height: 30vh;
+      }
+    }
+    & .valeurs {
+      & li {
+        padding: var(--spacing-xs);
+        max-width: 90%;
+        margin: 0 var(--spacing-l);
+      }
+    }
+    & .team {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

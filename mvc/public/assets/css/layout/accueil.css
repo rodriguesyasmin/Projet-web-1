@@ -1,0 +1,113 @@
+.hero-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: var(--color-neutral-gray);
+  & img {
+    filter: brightness(0.4);
+  }
+}
+
+.text-container {
+  position: absolute;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+  & h1 {
+    font-weight: bolder;
+    text-align: center;
+    color: var(--color-neutral-gray);
+  }
+  & p {
+    line-height: var(--spacing-l);
+    font-size: larger;
+  }
+}
+
+.btn-decouvrir {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.participez-encheres {
+  display: flex;
+  flex-direction: row;
+  padding: var(--spacing-l);
+
+  & .decouvrir {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+    & img {
+      max-width: 100%;
+      border-radius: var(--spacing-l);
+      padding: var(--spacing-m) 0;
+    }
+  }
+}
+.participez {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  & p {
+    max-width: 70%;
+    padding: var(--spacing-m) 0;
+    line-height: var(--spacing-l);
+  }
+}
+
+@media (max-width: 480px) {
+    .hero-banner{
+      p{
+        max-width: 100%;
+        
+      }
+    }
+    .participez-encheres{
+        display: flex;
+        flex-direction: column;
+   
+    }
+    img{
+        min-width: 100%;
+        
+    }
+    .decouvrir-encheres{
+        min-width:80%;
+        margin:auto;
+   
+    }
+    .text-container {
+      height: 100%;
+     h1{
+      font-size: var(--police-m);
+      line-height: var(--spacing-l);
+     }
+     p{
+      font-size: 10px;
+      line-height: var(--spacing-m);
+      width:380px ;
+     }
+     
+    }
+  
+
+  
+    .carrousel__card {
+      flex: 0 0 auto;
+      width: 100%; /* Garantir que cada carta ocupe a largura total do carrossel */
+      scroll-snap-align: start; /* Alinhar cada carta ao início da área de rolagem */
+    }
+  
+  
+
+   
+}

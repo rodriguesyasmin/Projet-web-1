@@ -1,0 +1,68 @@
+.carrousel {
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+   align-items: center;
+   & .fa-chevron-left{
+    cursor: pointer;
+   }
+   & .fa-chevron-right{
+    cursor: pointer;
+   }
+    & .carrousel__card{
+        
+        
+        margin:var(--spacing-s);
+        display: flex;
+        max-width: 29%;
+        height: 29%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        border: 2px solid var(--color-dark-red);
+      background-color: var(--coul-secondaire-pale);
+      box-shadow: 2px 5px 8px var(--color-brown);
+      
+        & .hourglass{
+            display: flex;
+            align-items: center;
+            
+            & i {
+                padding-left: var(--spacing-s);
+                color: var(--color-failure);
+            }
+        }
+        & .carrousel__id_ , .carrousel__prix {
+            padding: var(--spacing-xs);
+            color: var( --color-dar-red-1);
+        }      & .carrousel__temps{
+            color: var(--color-failure);
+            padding: var(--spacing-s);}
+        & .carrousel__image {
+            cursor: pointer;
+            height: 100%;
+            max-width: 100%;
+            
+            & img{
+                height: 100%;
+            max-width: 100%;
+    
+                object-fit: cover;
+                filter: brightness(0.6);
+                transition: filter 350ms;
+                &:hover {
+                        filter: brightness(1);
+                   cursor: pointer;
+                }
+            }
+        }
+    }
+    @media (max-width: 480px) {
+        .invisible{
+            display:none;
+           
+        }
+    }
+}

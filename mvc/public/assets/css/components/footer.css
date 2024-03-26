@@ -1,0 +1,49 @@
+footer {
+  background-color: var(--color-background);
+  color: var(--color-dark-red);
+}
+.info {
+  padding: var(--spacing-l);
+  display: flex;
+  & h3 {
+    color: var(--color-brown);
+    text-shadow: 1px 1px 1px var(--color-brown);
+  }
+
+  & li,
+  a {
+    padding: var(--spacing-s);
+    color: var(--color-dark-red);
+    text-decoration: none;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+  & .adresse {
+    padding: var(--spacing-xs);
+    padding-right: var(--spacing-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  & .adresse a {
+    padding: 0;
+    color: var(--color-dark-red);
+  }
+}
+.icones {
+  text-align: right;
+  padding: var(--spacing-l);
+
+  & i {
+    padding: var(--spacing-xs);
+  }
+  & i:hover {
+    cursor: pointer;
+    color: var(--color-brown);
+  }
+}
+.droits {
+  text-align: center;
+  padding: var(--spacing-xs);
+}
