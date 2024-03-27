@@ -38,12 +38,13 @@
             </select>
         </label>
         <label>Privilege </label>
-        <select name="privilege_stampee_id">
-            <option value="">Select Privilege</option>
+        <select>
             {% for privilege in privileges %}
+            {% if privilege.privilege == "membre" %}
             <option value="{{ privilege.id }}" {% if privilege.id == user.privilege_id %} selected {% endif %}>
                 {{ privilege.privilege }}
             </option>
+            {% endif %}
             {% endfor %}
         </select>
 
