@@ -11,6 +11,18 @@ use App\Providers\Validator;
 
 class TimbreController
 {
+
+    public function index()
+    {
+        $timbre = new Timbre;
+        $select = $timbre->select();
+
+        if ($select) {
+            return View::render('timbre/index', ['timbres' => $select]);
+        } else {
+            return View::render('error');
+        }
+    }
     public function create()
     {
         $categorie = new Categorie;
@@ -71,12 +83,42 @@ class TimbreController
                 }
             }
 
-            return View::redirect('user/create');
+            return $this->index();
         } else {
             $errors = $validator->getErrors();
             $privilege = new Privilege;
             $privileges = $privilege->select('privilege');
             return View::render('user/create', ['errors' => $errors, 'user' => $data, 'privileges' => $privileges]);
+        }
+    }
+
+    public function show($data = [])
+    {
+
+        $timbre = new Timbre;
+        $selectId = $timbre->selectId($data['id']);
+        $img = new Image;
+        $img = $img->selectImage($data['id']);
+
+        if ($selectId) {
+            return View::render('timbre/show', ['timbre' => $selectId, 'img' => $img]);
+        } else {
+            return View::render('error');
+        }
+
+        //else{
+        //     return View::render('error', ['message'=>'Could not find this data']);
+        // }
+    }
+
+    public function delete($data)
+    {
+        $timbre = new  Timbre;
+        $delete = $timbre->delete($data['id']);
+        if ($delete) {
+            return View::redirect('timbre/create');
+        } else {
+            return View::render('error');
         }
     }
 }

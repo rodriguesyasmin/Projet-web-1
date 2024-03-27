@@ -91,7 +91,7 @@
             </p>
         </div>
         <div class="decouvrir">
-            <img src="assets/img/stamp/czech-republic.webp" alt="timbre czech-republic" />
+            <img src="{{ asset }}/assets/img/stamp/czech-republic.webp" alt="timbre czech-republic" />
             <a href="catalogue.html"><button class="decouvrir-encheres">
                     Découvrir les Enchères
                 </button></a>

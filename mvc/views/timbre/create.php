@@ -27,8 +27,8 @@
         <label>Prix Initial:
             <input type="text" name="prix" class="input-field" value="{{ timbre.prix }}">
         </label>
-        <label>Condition:
-            <input type="text" name="etat" class="input-field" value="{{ timbre.condition }}">
+        <label>État du timbre:
+            <input type="text" name="etat" class="input-field" value="{{ timbre.etat }}">
         </label>
         <label>Pays:
             <input type="text" name="pays" class="input-field" value="{{ timbre.pays }}">

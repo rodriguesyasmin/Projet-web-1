@@ -19,6 +19,8 @@ Route::post('/client/edit', 'ClientController@update');
 Route::post('/client/delete', 'ClientController@delete');
 
 
+
+
 Route::get('/user/create', 'UserController@create');
 Route::post('/user/create', 'UserController@store');
 
@@ -26,6 +28,15 @@ Route::post('/user/create', 'UserController@store');
 
 Route::get('/timbre/create', 'TimbreController@create');
 Route::post('/timbre/create', 'TimbreController@store');
+
+Route::get('/timbre', 'TimbreController@index');
+Route::get('/timbre/show', 'TimbreController@show');
+
+
+Route::get('/timbre/delete', 'TimbreController@delete');
+
+
+
 
 Route::get('/login', 'AuthController@index');
 Route::post('/login', 'AuthController@store');
