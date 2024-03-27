@@ -26,8 +26,14 @@ class AuthController
             $user = new User;
             $checkuser = $user->checkUser($data['email'], $data['mot_de_passe']);
             if ($checkuser) {
-            
-               View::redirect('home');
+                $user = new   User;
+                $select = $user->select();
+
+                if ($select) {
+                    return View::render('user/index', ['users' => $select]);
+                } else {
+                    return View::render('error');
+                }
             } else {
                 $errors['message'] = "Please check your credentials";
                 return View::render('auth/index', ['errors' => $errors, 'user' => $data]);

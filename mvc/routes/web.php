@@ -23,6 +23,7 @@ Route::post('/client/delete', 'ClientController@delete');
 
 Route::get('/user/create', 'UserController@create');
 Route::post('/user/create', 'UserController@store');
+Route::get('/user/delete', 'UserController@delete');
 
 
 
