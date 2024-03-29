@@ -38,7 +38,7 @@
             </select>
         </label>
         <label>Privilege </label>
-        <select>
+        <select name="privilege_stampee_id">
             {% for privilege in privileges %}
             {% if privilege.privilege == "membre" %}
             <option value="{{ privilege.id }}" {% if privilege.id == user.privilege_id %} selected {% endif %}>
