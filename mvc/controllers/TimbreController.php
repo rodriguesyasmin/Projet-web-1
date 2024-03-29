@@ -7,20 +7,33 @@ use App\Models\Timbre;
 use App\Models\Privilege;
 use App\Providers\View;
 use App\Models\Image;
+use App\Providers\Auth;
 use App\Providers\Validator;
 
 class TimbreController
 {
-
     public function index()
     {
-        $timbre = new Timbre;
-        $select = $timbre->select();
 
-        if ($select) {
-            return View::render('timbre/index', ['timbres' => $select]);
+        $user_id = Auth::getUserId();
+
+        if ($user_id !== null) {
+
+            $timbre = new Timbre;
+            $all_timbres = $timbre->select();
+            $user_timbres = [];
+            foreach ($all_timbres as $timbre) {
+                if ($timbre['user_stampee_id'] == $user_id) {
+                    $user_timbres[] = $timbre;
+                }
+            }
+            if (!empty($user_timbres)) {
+                return View::render('timbre/index', ['timbres' => $user_timbres]);
+            } else {
+                return View::render('error', ['message' => 'Pas de timbres.']);
+            }
         } else {
-            return View::render('error');
+            return View::render('error', ['message' => 'User ID not found.']);
         }
     }
     public function create()
