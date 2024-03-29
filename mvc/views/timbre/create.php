@@ -65,9 +65,7 @@
         <label>Autres images
             <input type="file" name="image_secondaire[]" multiple class="input-field">
                     </label>
-        <label>Enchères ID:
-            <input type="text" name="encheres_stampee_id" class="input-field" value="{{ timbre.encheres_stampee_id }}">
-        </label>
+
         <input type="hidden" name="user_stampee_id" value="{{session.user_id}}">
         <input type="submit" class="btn" value="Ajouter le timbre">
     </form>

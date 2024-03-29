@@ -32,5 +32,5 @@
         {% endfor %}
     </tbody>
 </table>
-<a href="{{ base }}/client/create" class="btn">Client Create</a>
+<a href="{{ base }}/client/create" class="btn"> Créer un nouveau timbre</a>
 {{ include('layouts/footer.php') }}

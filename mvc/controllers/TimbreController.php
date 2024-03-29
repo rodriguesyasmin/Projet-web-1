@@ -36,6 +36,7 @@ class TimbreController
             return View::render('error', ['message' => 'User ID not found.']);
         }
     }
+    
     public function create()
     {
         $categorie = new Categorie;
@@ -58,7 +59,7 @@ class TimbreController
         $validator->field('couleur', $data['couleur'])->min(2)->max(45);
         $validator->field('dimensions', $data['dimensions'])->min(2)->max(45);
         $validator->field('categorie_stampee_id', $data['categorie_stampee_id'])->required();
-        $validator->field('encheres_stampee_id', $data['encheres_stampee_id'])->required();
+       
         $validator->field('user_stampee_id', $data['user_stampee_id']);
 
         if ($validator->isSuccess()) {
@@ -169,7 +170,7 @@ class TimbreController
         $validator->field('couleur', $data['couleur'])->min(2)->max(45);
         $validator->field('dimensions', $data['dimensions'])->min(2)->max(45);
         $validator->field('categorie_stampee_id', $data['categorie_stampee_id']);
-        $validator->field('encheres_stampee_id', $data['encheres_stampee_id'])->required();
+     
         $validator->field('user_stampee_id', $data['user_stampee_id']);
 
         if ($validator->isSuccess()) {
