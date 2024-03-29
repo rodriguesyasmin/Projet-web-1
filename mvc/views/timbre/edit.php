@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title: 'Client Create'}) }}
+{{ include('layouts/header.php', {title: 'Ajouter un timbre'}) }}
 <h1>Ajouter un timbre</h1>
 <div class="container">
     {% if errors is defined %}
@@ -47,7 +47,7 @@
         </label>
         <label>Categorie
             <select name="categorie_stampee_id" class="select-field">
-                <option value="">Select categorie</option>
+                <option value="{{ categorie.id }}">Select categorie</option>
                 {% for categorie in categories %}
                 <option value="{{ categorie.id }}">
                     {{ categorie.nom }}
@@ -64,7 +64,7 @@
 
         <label>Autres images
             <input type="file" name="image_secondaire[]" multiple class="input-field">
-                    </label>
+        </label>
         <label>Enchères ID:
             <input type="text" name="encheres_stampee_id" class="input-field" value="{{ timbre.encheres_stampee_id }}">
         </label>

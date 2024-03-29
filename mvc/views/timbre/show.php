@@ -26,7 +26,7 @@
         <h3>Categorie : <span> {{ timbre.categorie_stampee_id }}</span></h3>
         <h3>Partager : <i class="fa-solid fa-share"></i></h3>
         <a href="{{ base }}/timbre/edit?id={{ timbre.id }}" class="btn block">Éditer</a>
-        <form action="{{ base }}/timbre/delete" method="post">
+        <form action="{{ base }}/timbre/delete?id={{ timbre.id }}" method="get">
             <input type="hidden" name="id" value="{{ timbre.id }}">
             <button class="btn block red">Supprimer</button>
         </form>

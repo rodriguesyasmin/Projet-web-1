@@ -13,8 +13,7 @@ Route::get('/client/show', 'ClientController@show');
 Route::get('/client/create', 'ClientController@create');
 Route::post('/client/create', 'ClientController@store');
 
-Route::get('/client/edit', 'ClientController@edit');
-Route::post('/client/edit', 'ClientController@update');
+
 
 Route::post('/client/delete', 'ClientController@delete');
 
@@ -33,6 +32,8 @@ Route::post('/timbre/create', 'TimbreController@store');
 Route::get('/timbre', 'TimbreController@index');
 Route::get('/timbre/show', 'TimbreController@show');
 
+Route::get('/timbre/edit', 'TimbreController@edit');
+Route::post('/timbre/edit', 'TimbreController@update');
 
 Route::get('/timbre/delete', 'TimbreController@delete');
 
