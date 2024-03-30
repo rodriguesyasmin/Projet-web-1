@@ -25,10 +25,10 @@
             </label>
 
             <label>Date de début
-                <input type="date" name="date_heure_debut">
+                <input type="datetime-local" name="date_heure_debut">
             </label>
             <label>Date de fin
-                <input type="date" name="date_heure_fin">
+                <input type="datetime-local" name="date_heure_fin">
             </label>
             <input type="hidden" name="coup_de_coeur" value="0">
             <input type="hidden" name="status_id" value="1">
