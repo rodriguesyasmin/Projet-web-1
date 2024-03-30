@@ -127,17 +127,16 @@ class TimbreController
 
     public function delete($data)
     {
-        echo var_dump($data);
+        
         $timbre = new  Timbre;
         $delete = $timbre->delete($data['id']);
-        // if ($delete) {
-        //     echo 'apagou';
-        //     return View::redirect('timbre/create');
-        // } else {
-        //     echo ' nao apagou';
-
-        //     // return View::render('error');
-        // }
+        if ($delete) {
+      
+            return View::redirect('timbre/create');
+        } else {
+         
+            return View::render('error');
+        }
     }
 
     public function edit($data = [])

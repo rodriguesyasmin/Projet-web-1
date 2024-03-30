@@ -38,6 +38,10 @@ Route::post('/timbre/edit', 'TimbreController@update');
 Route::get('/timbre/delete', 'TimbreController@delete');
 
 
+Route::get('/enchere/create', 'EnchereController@create');
+Route::post('/enchere/create', 'EnchereController@store');
+
+
 
 
 Route::get('/login', 'AuthController@index');
