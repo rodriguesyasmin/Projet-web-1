@@ -36,7 +36,7 @@ class TimbreController
             return View::render('error', ['message' => 'User ID not found.']);
         }
     }
-    
+
     public function create()
     {
         $categorie = new Categorie;
@@ -59,7 +59,7 @@ class TimbreController
         $validator->field('couleur', $data['couleur'])->min(2)->max(45);
         $validator->field('dimensions', $data['dimensions'])->min(2)->max(45);
         $validator->field('categorie_stampee_id', $data['categorie_stampee_id'])->required();
-       
+
         $validator->field('user_stampee_id', $data['user_stampee_id']);
 
         if ($validator->isSuccess()) {
@@ -127,14 +127,14 @@ class TimbreController
 
     public function delete($data)
     {
-        
+
         $timbre = new  Timbre;
         $delete = $timbre->delete($data['id']);
         if ($delete) {
-      
+
             return View::redirect('timbre/create');
         } else {
-         
+
             return View::render('error');
         }
     }
@@ -169,7 +169,7 @@ class TimbreController
         $validator->field('couleur', $data['couleur'])->min(2)->max(45);
         $validator->field('dimensions', $data['dimensions'])->min(2)->max(45);
         $validator->field('categorie_stampee_id', $data['categorie_stampee_id']);
-     
+
         $validator->field('user_stampee_id', $data['user_stampee_id']);
 
         if ($validator->isSuccess()) {
@@ -188,4 +188,6 @@ class TimbreController
             return View::render('timbre/edit', ['errors' => $errors, 'timbre' => $data]);
         }
     }
+
+
 }

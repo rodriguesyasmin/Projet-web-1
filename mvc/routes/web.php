@@ -35,11 +35,15 @@ Route::get('/timbre/show', 'TimbreController@show');
 Route::get('/timbre/edit', 'TimbreController@edit');
 Route::post('/timbre/edit', 'TimbreController@update');
 
+Route::get('/enchere/show', 'EnchereController@show');
+
 Route::get('/timbre/delete', 'TimbreController@delete');
 
 
 Route::get('/enchere/create', 'EnchereController@create');
 Route::post('/enchere/create', 'EnchereController@store');
+Route::get('/catalogue', 'EnchereController@index');
+
 
 
 
