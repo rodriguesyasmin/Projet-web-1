@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title: 'Enchere'}) }}
+{{ include('layouts/header.php', {title: ' Mettre aux encheres'}) }}
 
 <body>
     <div class="container">

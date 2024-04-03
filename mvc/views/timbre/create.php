@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title: 'Client Create'}) }}
+{{ include('layouts/header.php', {title: 'Ajouter timbre'}) }}
 <h1>Ajouter un timbre</h1>
 <div class="container">
     {% if errors is defined %}

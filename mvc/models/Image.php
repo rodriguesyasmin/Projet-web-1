@@ -17,11 +17,11 @@ class Image extends CRUD
     if ($stmt = $this->query($sql)) {
         $queryResults = $stmt->fetchAll();
 
-        // Verificar se há resultados
+       
         if (!empty($queryResults)) {
             return $queryResults[0]['image_principale'];
         } else {
-            // Retorna null se não houver resultados
+       
             return null;
         }
     } else {
