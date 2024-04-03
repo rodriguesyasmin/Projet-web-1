@@ -3,7 +3,7 @@
 
 <section class="fiche-du-produit">
     <div class="container-img">
-        <img src="{{base}}/{{img}}" alt="" class="img-principale" />
+        <img src="{{base}}/{{ image }}" alt="" class="img-principale" />
     </div>
 
     <div class="description">

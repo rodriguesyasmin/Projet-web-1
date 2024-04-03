@@ -52,7 +52,7 @@ class TimbreController
         $validator->field('nom', $data['nom'])->min(2)->max(50);
         $validator->field('description', $data['description'])->min(2)->max(255);
         $validator->field('annee', $data['annee'])->min(4)->max(4);
-        $validator->field('prix', $data['prix'])->min(1)->max(45);
+       
         $validator->field('etat', $data['etat'])->min(2)->max(45);
         $validator->field('pays', $data['pays'])->min(2)->max(25);
         $validator->field('certifie', $data['certifie']);

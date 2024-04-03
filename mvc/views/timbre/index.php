@@ -21,7 +21,6 @@
             <td><a href="{{ base }}/timbre/show?id={{ timbre.id }}">{{ timbre.nom }}</a>
             <td>{{ timbre.description }}</td>
             <td>{{ timbre.annee }}</td>
-            <td>{{ timbre.prix }}</td>
             <td>{{ timbre.etat }}</td>
             <td>{{ timbre.pays }}</td>
             <td>{{ timbre.certifie ? "Oui" : "Non" }}</td>

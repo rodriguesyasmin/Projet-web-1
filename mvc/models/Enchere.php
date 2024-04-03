@@ -23,4 +23,6 @@ class Enchere extends CRUD
             return null;
         }
     }
+
+ 
 }

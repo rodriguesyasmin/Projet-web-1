@@ -21,18 +21,22 @@ class EnchereController
 
     public function store($data)
     {
-        var_dump($data);
+
         $validator = new Validator;
-        $validator->field('prix_initial', $data['prix_initial'])->min(0)->max(99999999.99);
-        $validator->field('date_heure_debut', $data['date_heure_debut']);
-        $validator->field('date_heure_fin', $data['date_heure_fin']);
+        $validator->field('prix_initial', $data['prix_initial'])->min(0)->max(99999999.99)->required();
+        $validator->field('date_heure_debut', $data['date_heure_debut'])->required();
+        $validator->field('date_heure_fin', $data['date_heure_fin'])->required()->required();
+        $validator->field('timbre_stampee_id', $data['timbre_stampee_id'])->required()->unique('Enchere');
 
         if ($validator->isSuccess()) {
             $enchere = new Enchere;
             $inserted_enchere_id = $enchere->insert($data);
+            return $this->index();
         } else {
             $errors = $validator->getErrors();
-            return View::render('enchere/create', ['errors' => $errors]);
+            $timbre = new Timbre;
+            $timbre = $timbre->select('nom');
+            return View::render('enchere/create', ['errors' => $errors, 'timbres' => $timbre]);
         }
     }
     public function index()
@@ -72,10 +76,12 @@ class EnchereController
         if ($selectId) {
             $enchere = new Enchere;
             $enchereId = $enchere->selectIdByTimbreId($timbreId);
+            $img = new Image;
+            $image = $img->selectImage($data['id']);
 
             if ($enchereId) {
 
-                return View::render('enchere/detail', ['timbre' => $selectId, 'enchere' => $enchereId]);
+                return View::render('enchere/detail', ['timbre' => $selectId, 'enchere' => $enchereId,  'image' => $image,]);
             } else {
                 return View::render('error');
             }

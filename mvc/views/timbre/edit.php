@@ -24,9 +24,6 @@
         <label>Année:
             <input type="text" name="annee" class="input-field" value="{{ timbre.annee }}">
         </label>
-        <label>Prix Initial:
-            <input type="text" name="prix" class="input-field" value="{{ timbre.prix }}">
-        </label>
         <label>État du timbre:
             <input type="text" name="etat" class="input-field" value="{{ timbre.etat }}">
         </label>
@@ -67,7 +64,7 @@
         </label>
 
         <input type="hidden" name="user_stampee_id" value="{{session.user_id}}">
-        <input type="submit" class="btn" value="Ajouter le timbre">
+        <input type="submit" class="btn" value="Editer timbre">
     </form>
 </div>
 {{ include('layouts/footer.php') }}
