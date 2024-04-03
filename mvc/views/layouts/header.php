@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Explorez Lord Stampee pour l'achat et la vente de timbres rares. Collection unique, histoires à travers images et designs. Idéal pour passionnés et amateurs." />
+
+    <meta name="description" content="Explorez Lord Stampee pour l'achat et la vente de timbres rares. Collection unique, histoires à travers images et designs. Idéal pour passionnés et amateurs." />
     <title>Accueil</title>
     <link rel="stylesheet" href="{{ asset }}/assets/css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{{ asset }}/assets/js/main.js"></script>
 </head>
 
 <body>
@@ -35,11 +33,13 @@
                 <li><i class="fa-solid fa-bars icon-menu"></i></li>
                 <li><a href="{{base}}">Accueil</a></li>
                 <li><a href="{{base}}/catalogue">Catalogue</a></li>
-                <li><a href="{{base}}/contact">Contact</a></li>
+
                 <li><a href="{{base}}/user/create">Devenir Membre</a></li>
                 <li><a href="{{base}}mission">À propos</a></li>
                 {% if not guest %}
                 <li><a href="{{base}}/timbre/create">Ajouter timbre</a></li>
+                <li>
+                <li><a href="{{base}}/enchere/create">Mettre timbre aux encheres</a></li>
                 <li>
                     <a href="{{base}}/logout">Logout
                     </a>
@@ -66,8 +66,8 @@
     </header>
 
 
-    <body>
-        <!-- <!DOCTYPE html>
+
+    <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

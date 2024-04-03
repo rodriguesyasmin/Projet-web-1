@@ -36,16 +36,20 @@
                         <h2>{{timbre['timbre'].nom}}</h2>
                     </div>
                     <div class="card__image">
-                        <a href="{{ base }}/enchere/show?id={{ timbre['id'] }}"><img src="{{base}}/{{timbre['image']}}" alt="Photo timbre usa" /></a>
+                        <a href="{{ base }}/enchere/show?id={{ timbre['id'] }}"><img src="{{base}}/{{timbre['image']}}"
+                                alt="Photo timbre usa" /></a>
                     </div>
 
-                    <div class="card__prix">Offre actuelle: <small>{{timbre['enchere']}}$</small></div>
+                    <div class="card__prix">Offre actuelle: <small>{{timbre['encherePrix']}}$</small></div>
                     <div class="hourglass">
                         <div class="card__temps">
-                            Temps restant: <small> 23h21min</small>
+                            Temps restant: <small id="temp_restant_{{ timbre['id'] }}"> </small>
                         </div>
                         <i class="fa-regular fa-hourglass-half"></i>
                     </div>
+                    <script>
+                    calculerTempsRestant(`{{ timbre['enchereDateFin'] }}`, `{{ timbre['id'] }}`);
+                    </script>
                 </div> {% endfor %}
 
             </section>

@@ -19,7 +19,15 @@
             <li>Condition <span>{{ timbre.etat }}</span></li>
             <li>Dimensions <span>{{ timbre.dimensions }}</span></li>
             <li>Description <span>{{ timbre.description }}</span></li>
-            <li>Offres actuelle <span>{{ timbre.prix }}$</span></li>
+            <hr>
+            <li>Date début <span>{{ enchere.date_heure_debut }}</span></li>
+            <li>Temps restant: <span id="temp_restant_{{ timbre.id }}"></span></li>
+            </li>
+
+
+
+            <li>Offre actuelle <span>{{ enchere.prix_initial }}$</span></li>
+
         </ul>
         <hr />
         <div class="achat">
@@ -48,3 +56,7 @@
 
 
 {{ include('layouts/footer.php') }}
+
+<script>
+calculerTempsRestant('{{ enchere.date_heure_fin }}', '{{ timbre.id}}');
+</script>

@@ -40,6 +40,7 @@ class EnchereController
         $data = [];
         $enchere = new Enchere;
         $encheres = $enchere->select();
+
         foreach ($encheres as $enchere) {
 
             $timbre = new Timbre;
@@ -49,38 +50,37 @@ class EnchereController
             $image = $image->selectImage($enchere['timbre_stampee_id']);
             if ($selectId) {
                 $data[] = [
-                    'enchere' => $enchere['prix_initial'],
+                    'encherePrix' => $enchere['prix_initial'],
+                    'enchereId' => $enchere['id'],
+                    'enchereDateFin' => $enchere['date_heure_fin'],
                     'timbre' => $selectId,
                     'image' => $image,
                     'id' => $selectId['id']
                 ];
-                var_dump($selectId);
-                echo '<br>';
             } else {
                 return View::render('error');
             }
         }
         return View::render('enchere/index', ['data' => $data]);
     }
-
     public function show($data = [])
     {
-     
+        $timbreId = $data['id'];
         $timbre = new Timbre;
-        $selectId = $timbre->selectId($data['id']);
-  
-
-        $img = new Image;
-        $img = $img->selectImage($data['id']);
+        $selectId = $timbre->selectId($timbreId);
 
         if ($selectId) {
-            return View::render('enchere/detail', ['timbre' => $selectId, 'img' => $img]);
+            $enchere = new Enchere;
+            $enchereId = $enchere->selectIdByTimbreId($timbreId);
+
+            if ($enchereId) {
+
+                return View::render('enchere/detail', ['timbre' => $selectId, 'enchere' => $enchereId]);
+            } else {
+                return View::render('error');
+            }
         } else {
             return View::render('error');
         }
-
-        //else{
-        //     return View::render('error', ['message'=>'Could not find this data']);
-        // }
     }
 }
