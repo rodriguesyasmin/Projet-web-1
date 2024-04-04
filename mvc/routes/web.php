@@ -6,6 +6,8 @@ use App\Routes\Route;
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
+Route::get('/apropos', 'AProposController@index');
+
 Route::get('/user/create', 'UserController@create');
 Route::post('/user/create', 'UserController@store');
 Route::get('/user/delete', 'UserController@delete');

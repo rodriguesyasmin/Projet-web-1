@@ -35,7 +35,7 @@
                 <li><a href="{{base}}/catalogue">Catalogue</a></li>
 
                 <li><a href="{{base}}/user/create">Devenir Membre</a></li>
-                <li><a href="{{base}}mission">À propos</a></li>
+                <li><a href="{{base}}/apropos">À propos</a></li>
                 {% if not guest %}
                 <li><a href="{{base}}/timbre/create">Ajouter timbre</a></li>
                 <li>

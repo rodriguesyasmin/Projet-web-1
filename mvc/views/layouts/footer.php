@@ -13,10 +13,10 @@
         </div>
         <div>
             <ul>
-                <li><a href="/mission.html">Biographie Du Lord Stampee</a></li>
+                <li><a href="{{base}}/apropos">Biographie Du Lord Stampee</a></li>
                 <li><a href="#">Politique De Retour</a></li>
-                <li><a href="/mission.html">À propos</a></li>
-                <li><a href="/catalogue.html">Enchères</a></li>
+                <li><a href="{{base}}/apropos">À propos</a></li>
+                <li><a href="{{base}}/catalogue">Enchères</a></li>
                 <li><a href="#">Aide</a></li>
                 <li><a href="">Carrières</a></li>
             </ul>
