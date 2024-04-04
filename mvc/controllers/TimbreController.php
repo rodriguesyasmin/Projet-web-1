@@ -52,7 +52,7 @@ class TimbreController
         $validator->field('nom', $data['nom'])->min(2)->max(50);
         $validator->field('description', $data['description'])->min(2)->max(255);
         $validator->field('annee', $data['annee'])->min(4)->max(4);
-       
+
         $validator->field('etat', $data['etat'])->min(2)->max(45);
         $validator->field('pays', $data['pays'])->min(2)->max(25);
         $validator->field('certifie', $data['certifie']);
@@ -100,9 +100,9 @@ class TimbreController
             return $this->index();
         } else {
             $errors = $validator->getErrors();
-            $privilege = new Privilege;
-            $privileges = $privilege->select('privilege');
-            return View::render('user/create', ['errors' => $errors, 'user' => $data, 'privileges' => $privileges]);
+            $categorie = new Categorie;
+            $categories = $categorie->select('nom');
+            return View::render('timbre/create', ['errors' => $errors, 'timbre' => $data, 'categories' => $categories]);
         }
     }
 
@@ -147,7 +147,7 @@ class TimbreController
             if ($selectId) {
                 $categorie = new Categorie;
                 $categories = $categorie->select('nom');
-                return View::render('timbre/edit', ['timbre' => $selectId], ['categories' => $categories]);
+                return View::render('timbre/edit', ['timbre' => $selectId, 'categories' => $categories]);
             } else {
                 return View::render('error');
             }
@@ -159,35 +159,35 @@ class TimbreController
     {
         $validator = new Validator;
         // Validation des données du formulaire
+        $validator = new Validator;
         $validator->field('nom', $data['nom'])->min(2)->max(50);
         $validator->field('description', $data['description'])->min(2)->max(255);
         $validator->field('annee', $data['annee'])->min(4)->max(4);
-        $validator->field('prix', $data['prix'])->min(1)->max(45);
         $validator->field('etat', $data['etat'])->min(2)->max(45);
         $validator->field('pays', $data['pays'])->min(2)->max(25);
         $validator->field('certifie', $data['certifie']);
         $validator->field('couleur', $data['couleur'])->min(2)->max(45);
         $validator->field('dimensions', $data['dimensions'])->min(2)->max(45);
-        $validator->field('categorie_stampee_id', $data['categorie_stampee_id']);
+        $validator->field('categorie_stampee_id', $data['categorie_stampee_id'])->required();
+
 
         $validator->field('user_stampee_id', $data['user_stampee_id']);
 
         if ($validator->isSuccess()) {
             $timbre = new Timbre;
-            $update = $timbre->update($data, $get['id']); // Assuming the update method is appropriately defined in the Timbre model
-
+            $update = $timbre->update($data, $get['id']);
+            // Assuming the update method is appropriately defined in the Timbre model
             if ($update) {
-
-                return View::render('timbre/show?id=' . $get['id']);
+                return View::redirect('timbre/show?id=' . $get['id']);
             } else {
-                return View::render('error');
+                $errors = ['Veuillez modifier au moins un champ'];
+                $categorie = new Categorie;
+                $categories = $categorie->select('nom');
+                return View::render('timbre/edit', ['errors' => $errors, 'timbre' => $data, 'categories' => $categories]);
             }
         } else {
             $errors = $validator->getErrors();
-            //print_r($errors);
             return View::render('timbre/edit', ['errors' => $errors, 'timbre' => $data]);
         }
     }
-
-
 }

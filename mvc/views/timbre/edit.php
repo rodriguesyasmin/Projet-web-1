@@ -1,15 +1,7 @@
 {{ include('layouts/header.php', {title: 'Editer timbre'}) }}
-<h1>Ajouter un timbre</h1>
+<h1>Editer timbre</h1>
 <div class="container">
-    {% if errors is defined %}
-    <div class="error">
-        <ul>
-            {% for error in errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
+
     <form method="post" class="form-pages" enctype="multipart/form-data">
 
         <label>Identifiant unique:
@@ -44,13 +36,14 @@
         </label>
         <label>Categorie
             <select name="categorie_stampee_id" class="select-field">
-                <option value="{{ categorie.id }}">Select categorie</option>
+
                 {% for categorie in categories %}
                 <option value="{{ categorie.id }}">
                     {{ categorie.nom }}
                 </option>
                 {% endfor %}
             </select>
+        </label>
         </label>
         <label>Image Principale
             <input type="file" name="image_principale" class="input-field">
@@ -65,6 +58,16 @@
 
         <input type="hidden" name="user_stampee_id" value="{{session.user_id}}">
         <input type="submit" class="btn" value="Editer timbre">
+        {% if errors is defined %}
+        <div class="error">
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
     </form>
+
 </div>
 {{ include('layouts/footer.php') }}
