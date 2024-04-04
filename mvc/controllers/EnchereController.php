@@ -52,6 +52,8 @@ class EnchereController
 
             $image = new Image;
             $image = $image->selectImage($enchere['timbre_stampee_id']);
+
+
             if ($selectId) {
                 $data[] = [
                     'encherePrix' => $enchere['prix_initial'],

@@ -89,7 +89,6 @@ CREATE TABLE IF NOT EXISTS `stampee`.`timbre_stampee` (
   `nom` VARCHAR(45) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   `annee` VARCHAR(45) NOT NULL,
-  `prix` VARCHAR(45) NOT NULL,
   `etat` VARCHAR(45) NOT NULL,
   `pays` VARCHAR(25) NOT NULL,
   `certifie` TINYINT(4) NOT NULL,
@@ -192,10 +191,11 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- Table `stampee`.`mise_stampee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `stampee`.`mise_stampee` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_stampee_id` INT(11) NOT NULL,
   `encheres_stampee_id` INT(11) NOT NULL,
   `montant_mise` INT(11) NOT NULL,
-  PRIMARY KEY (`user_stampee_id`, `encheres_stampee_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_user_stampee_has_encheres_stampee_encheres_stampee1_idx` (`encheres_stampee_id` ASC) ,
   INDEX `fk_user_stampee_has_encheres_stampee_user_stampee1_idx` (`user_stampee_id` ASC) ,
   CONSTRAINT `fk_user_stampee_has_encheres_stampee_encheres_stampee1`
@@ -210,6 +210,7 @@ CREATE TABLE IF NOT EXISTS `stampee`.`mise_stampee` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
 
 USE `stampee` ;
 

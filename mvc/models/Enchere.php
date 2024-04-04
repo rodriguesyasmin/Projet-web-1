@@ -24,5 +24,14 @@ class Enchere extends CRUD
         }
     }
 
- 
+    public function updatePrix($prix, $id)
+    {
+        $sql = "UPDATE encheres_stampee SET prix_initial = $prix WHERE id = $id;";
+
+        if ($stmt = $this->query($sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

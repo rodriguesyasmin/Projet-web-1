@@ -30,13 +30,24 @@
 
         </ul>
         <hr />
-        <div class="achat">
-            <label for="miser">Placez une mise
-                <input type="number" class="miser" name="miser" id="" />
-            </label>
-            <button class="ajouter-panier">Miser</button>
-            <a href=""><i class="fa-solid fa-heart fa-2x"></i></a>
-        </div>
+        <form action="{{base}}/miser/store" method="post">
+            <div class="achat">
+
+                <input type="hidden" name="user_stampee_id" value="{{session.user_id}}">
+                <input type="hidden" name="date_heure" value="<?php echo date('Y-m-d H:i:s'); ?>">
+
+                <input type="hidden" name="encheres_stampee_id" value="{{enchere.id}}" />
+                <input type="hidden" name="timbre_id" value="{{timbre.id}}" />
+
+                <label for="miser">Placez une mise
+                    <input type="number" min="{{ enchere.prix_initial }}" name=" montant_mise" />
+                </label>
+                <button type="submit" class="ajouter-panier">Miser</button>
+                <a href=""><i class="fa-solid fa-heart fa-2x"></i></a>
+            </div>
+        </form>
+
+
         <hr />
         <hr />
         <h3>Certifié : <span>{{ timbre.certifie ? "Oui" : "Non" }} </span></h3>
@@ -58,5 +69,5 @@
 {{ include('layouts/footer.php') }}
 
 <script>
-calculerTempsRestant('{{ enchere.date_heure_fin }}', '{{ timbre.id}}');
+    calculerTempsRestant('{{ enchere.date_heure_fin }}', '{{ timbre.id}}');
 </script>

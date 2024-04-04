@@ -24,6 +24,8 @@ Route::get('/enchere/create', 'EnchereController@create');
 Route::post('/enchere/create', 'EnchereController@store');
 Route::get('/catalogue', 'EnchereController@index');
 
+Route::post('/miser/store', 'MiseController@store');
+
 
 Route::get('/login', 'AuthController@index');
 Route::post('/login', 'AuthController@store');
