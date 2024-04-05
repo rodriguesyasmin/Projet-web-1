@@ -26,7 +26,7 @@ class EnchereController
         $validator->field('prix_initial', $data['prix_initial'])->min(0)->max(99999999.99)->required();
         $validator->field('date_heure_debut', $data['date_heure_debut'])->required();
         $validator->field('date_heure_fin', $data['date_heure_fin'])->required()->required();
-        $validator->field('timbre_stampee_id', $data['timbre_stampee_id'])->required()->unique('Enchere');
+        $validator->field('timbre_stampee_id', $data['timbre_stampee_id'], 'Stamp')->required()->unique('Enchere');
 
         if ($validator->isSuccess()) {
             $enchere = new Enchere;

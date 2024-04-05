@@ -6,7 +6,6 @@
             <th>Nom</th>
             <th>Description</th>
             <th>Année</th>
-            <th>Prix</th>
             <th>Etat</th>
             <th>Pays</th>
             <th>Certifié</th>
@@ -31,5 +30,5 @@
         {% endfor %}
     </tbody>
 </table>
-<a href="{{ base }}/client/create" class="btn"> Créer un nouveau timbre</a>
+<a href="{{base}}/enchere/create" class="btn">Ajouter un timbre aux encheres</a>
 {{ include('layouts/footer.php') }}
