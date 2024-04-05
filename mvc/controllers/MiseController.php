@@ -13,7 +13,6 @@ class MiseController
 {
     public function store($data)
     {
-
         $data['date_heure'] = date('Y-m-d H:i:s');
         // if ($_SESSION['privilege_id'] == 1) {
         $validator = new Validator;

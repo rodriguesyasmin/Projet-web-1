@@ -27,6 +27,8 @@ Route::post('/enchere/create', 'EnchereController@store');
 Route::get('/catalogue', 'EnchereController@index');
 
 Route::post('/miser/store', 'MiseController@store');
+Route::post('/favoris/store', 'FavorisController@store');
+Route::get('/favoris/index', 'FavorisController@index');
 
 
 Route::get('/login', 'AuthController@index');

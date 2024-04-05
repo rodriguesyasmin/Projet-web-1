@@ -43,22 +43,26 @@
                     <input type="number" min="{{ enchere.prix_initial }}" name=" montant_mise" />
                 </label>
                 <button type="submit" class="ajouter-panier">Miser</button>
-                <a href=""><i class="fa-solid fa-heart fa-2x"></i></a>
-            </div>
+
         </form>
 
+        <form action="{{base}}/favoris/store" method="post">
+            <input type="hidden" name="user_stampee_id" value="{{session.user_id}}">
+            <input type="hidden" name="encheres_stampee_id" value="{{enchere.id}}" />
+            <button type="submit" style="border: none; background: none; padding: 0; cursor: pointer;">
+                <i class="fa-solid fa-heart fa-2x"></i>
+            </button>
+        </form>
+    </div>
 
-        <hr />
-        <hr />
-        <h3>Certifié : <span>{{ timbre.certifie ? "Oui" : "Non" }} </span></h3>
-        <h3>Categorie : <span> {{ timbre.categorie_stampee_id }}</span></h3>
-        <h3>Partager : <i class="fa-solid fa-share"></i></h3>
 
-        <!-- <a href="{{ base }}/timbre/edit?id={{ timbre.id }}" class="btn block">Éditer</a>
-        <form action="{{ base }}/timbre/delete?id={{ timbre.id }}" method="get">
-            <input type="hidden" name="id" value="{{ timbre.id }}">
-            <button class="btn block red">Supprimer</button>
-        </form> -->
+
+    <hr />
+    <hr />
+    <h3>Certifié : <span>{{ timbre.certifie ? "Oui" : "Non" }} </span></h3>
+    <h3>Categorie : <span> {{ timbre.categorie_stampee_id }}</span></h3>
+    <h3>Partager : <i class="fa-solid fa-share"></i></h3>
+
     </div>
 </section>
 
